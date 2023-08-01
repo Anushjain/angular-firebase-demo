@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Property Details</h2>
+      <br>
+      <h4 style="color:orange">{{property.title}}</h4>
+      <br>
+      <h6 style="color: blue">Property Details</h6>
+      <p>{{property.description}}</p>
+    </div>
+    <div class="col">
+<!--       <h2>Owner's Details</h2>
+      <br>
+      <p style="color: blue">Owner Name: {{property.ownername}}</p>
+      <p style="color: blue">Conntact : {{property.ownercontact}}</p> -->
+      <br>
+      <img width="500px" height="200px;" src="{{image|async}}">
+      <h2 style="color: red">Price</h2>
+      <h4 style="color:green">Rs {{property.price}}</h4>
+      <button (click)="showForm=!showForm" class="btn btn-primary btn-block">Enquire for this property</button>
+
+      <ng-container *ngIf="showForm">
+          <form (ngSubmit)="sendEnquiry(enquiryForm)" #enquiryForm="ngForm">
+            <div class="form-group">
+              <label>Message</label>
+              <input ngModel name="message" type="text" class="form-control" placeholder="Enter Message">
+            </div>
+            <button type="submit">Send Enquiry</button>
+          </form>
+      </ng-container>
+      
+
+    </div>
+    </div>
+</div>
